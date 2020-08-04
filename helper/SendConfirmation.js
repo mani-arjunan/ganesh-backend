@@ -60,7 +60,7 @@ const sendCustEmail = (formDetails, totalCartProducts, inputQuantityValue, total
                     {
                         "From": {
                             "Email": "itsmh0305@gmail.com",
-                            "Name": "Manikandan"
+                            "Name": "Ganesha Eco Store"
                         },
                         "To": [
                             {
@@ -68,7 +68,7 @@ const sendCustEmail = (formDetails, totalCartProducts, inputQuantityValue, total
                                 "Name": name.value
                             }
                         ],
-                        "Subject": `Hi ${name.value} Greetings from Ganesha Eco friendly Store for your order on ${currentDate}`,
+                        "Subject": `Hi ${name.value} Greetings from Ganesha Eco friendly Store for your order on ${currentDate} at ${currentDateAndTime.split('T')[1]}`,
                         "HTMLPart": `${customerHTMLtemplate} `,
                         "CustomID": "AppGettingStartedTest"
                     }

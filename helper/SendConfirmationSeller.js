@@ -40,6 +40,11 @@ const sendAdminEmail = (formDetails, totalCartProducts, inputQuantityValue, tota
                 <td style=" border: 1px solid #dddddd;text-align: left;padding: 8px;"></td>
                 <td style=" border: 1px solid #dddddd;text-align: left;padding: 8px;"> ${totalPrice}</td>
             </tr>
+            <tr>
+                <td style=" border: 1px solid #dddddd;text-align: left;padding: 8px;">Ordered ON</td>
+                <td style=" border: 1px solid #dddddd;text-align: left;padding: 8px;"></td>
+                <td style=" border: 1px solid #dddddd;text-align: left;padding: 8px;">${currentDate} at ${currentDateAndTime.split('T')[1]} </td>
+            </tr>
             <div className="container">
                 <h4 style="text-decoration: underline;text-align: center">Address Details:</h4><hr />
                 ${forField}
@@ -66,7 +71,7 @@ const sendAdminEmail = (formDetails, totalCartProducts, inputQuantityValue, tota
                                 "Name": 'ADMIN'
                             }
                         ],
-                        "Subject": `Hi Admin this is the order from ${name.value} on ${currentDate}`,
+                        "Subject": `Hi Admin this is the order from ${name.value} on ${currentDate} at ${currentDateAndTime.split('T')[1]}`,
                         "HTMLPart": `${customerHTMLtemplate} `,
                         "CustomID": "AppGettingStartedTest"
                     }
