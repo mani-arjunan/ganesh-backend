@@ -30,6 +30,16 @@ const sendAdminEmail = (formDetails, totalCartProducts, inputQuantityValue, tota
     <div> 
         <table style="font - family: arial, sans-serif;border-collapse: collapse;width: 100%;">
             <tr>
+                <th style=" border: 1px solid #dddddd;text-align: left;padding: 8px;">Name</th>
+                <th style=" border: 1px solid #dddddd;text-align: left;padding: 8px;">Ordered Date</th>
+                <th style=" border: 1px solid #dddddd;text-align: left;padding: 8px;">Ordered Time</th>
+            </tr>
+            <tr>
+                <td style=" border: 1px solid #dddddd;text-align: left;padding: 8px;">${name.value}</td>
+                <td style=" border: 1px solid #dddddd;text-align: left;padding: 8px;">${currentDate}</td>
+                <td style=" border: 1px solid #dddddd;text-align: left;padding: 8px;">${currentTime}</td>
+            </tr>
+            <tr>
                 <th style=" border: 1px solid #dddddd;text-align: left;padding: 8px;">Size</th>
                 <th style=" border: 1px solid #dddddd;text-align: left;padding: 8px;">Quantity</th>
                 <th style=" border: 1px solid #dddddd;text-align: left;padding: 8px;">Price</th>
@@ -45,6 +55,8 @@ const sendAdminEmail = (formDetails, totalCartProducts, inputQuantityValue, tota
                 <td style=" border: 1px solid #dddddd;text-align: left;padding: 8px;"></td>
                 <td style=" border: 1px solid #dddddd;text-align: left;padding: 8px;">${currentDate} at ${currentTime} </td>
             </tr>
+            <hr/>
+            <h5>Order Details</h5>
             <div className="container">
                 <h4 style="text-decoration: underline;text-align: center">Address Details:</h4><hr />
                 ${forField}
