@@ -4,7 +4,7 @@ const mailjet = require('node-mailjet')
     .connect(process.env.API_KEY, process.env.API_SECRET_KEY)
 
 
-const sendCustEmail = (formDetails, totalCartProducts, inputQuantityValue, totalPrice, currentDateAndTime, currentDate) => {
+const sendCustEmail = (formDetails, totalCartProducts, inputQuantityValue, totalPrice, currentTime, currentDate) => {
     return new Promise((res, rej) => {
         let orderSummaryInputValues = '';
         let forField = '';
@@ -68,7 +68,7 @@ const sendCustEmail = (formDetails, totalCartProducts, inputQuantityValue, total
                                 "Name": name.value
                             }
                         ],
-                        "Subject": `Hi ${name.value} Greetings from Ganesha Eco friendly Store for your order on ${currentDate} at ${currentDateAndTime.split('T')[1]}`,
+                        "Subject": `Hi ${name.value} Greetings from Ganesha Eco friendly Store for your order on ${currentDate} at ${currentTime}`,
                         "HTMLPart": `${customerHTMLtemplate} `,
                         "CustomID": "AppGettingStartedTest"
                     }

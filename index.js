@@ -22,8 +22,8 @@ app.get('/', (req, res) => {
     res.send('Welcome to home route')
 })
 app.post('/send-email', (req, res) => {
-    const { formDetails, totalCartProducts, inputQuantityValue, totalPrice, currentDateAndTime, currentDate } = req.body
-    sendPhoneMessage(formDetails, totalCartProducts, inputQuantityValue, totalPrice, currentDateAndTime, currentDate).then(data => {
+    const { formDetails, totalCartProducts, inputQuantityValue, totalPrice, currentTime, currentDate } = req.body
+    sendPhoneMessage(formDetails, totalCartProducts, inputQuantityValue, totalPrice, currentTime, currentDate).then(data => {
         if (data.body.Messages[0].Status === 'success') {
             return
         }
@@ -32,7 +32,7 @@ app.post('/send-email', (req, res) => {
             error: 'server Error'
         })
     })
-        .then(() => sendAdminEmail(formDetails, totalCartProducts, inputQuantityValue, totalPrice, currentDateAndTime, currentDate))
+        .then(() => sendAdminEmail(formDetails, totalCartProducts, inputQuantityValue, totalPrice, currentTime, currentDate))
         .then(data => {
             res.send({
                 status: 201,

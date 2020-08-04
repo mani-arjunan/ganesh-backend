@@ -4,7 +4,7 @@ const mailjet = require('node-mailjet')
     .connect(process.env.API_KEY, process.env.API_SECRET_KEY)
 
 
-const sendAdminEmail = (formDetails, totalCartProducts, inputQuantityValue, totalPrice, currentDateAndTime, currentDate) => {
+const sendAdminEmail = (formDetails, totalCartProducts, inputQuantityValue, totalPrice, currentTime, currentDate) => {
     return new Promise((res, rej) => {
         let orderSummaryInputValues = '';
         let forField = '';
@@ -43,7 +43,7 @@ const sendAdminEmail = (formDetails, totalCartProducts, inputQuantityValue, tota
             <tr>
                 <td style=" border: 1px solid #dddddd;text-align: left;padding: 8px;">Ordered ON</td>
                 <td style=" border: 1px solid #dddddd;text-align: left;padding: 8px;"></td>
-                <td style=" border: 1px solid #dddddd;text-align: left;padding: 8px;">${currentDate} at ${currentDateAndTime.split('T')[1]} </td>
+                <td style=" border: 1px solid #dddddd;text-align: left;padding: 8px;">${currentDate} at ${currentTime} </td>
             </tr>
             <div className="container">
                 <h4 style="text-decoration: underline;text-align: center">Address Details:</h4><hr />
@@ -63,7 +63,7 @@ const sendAdminEmail = (formDetails, totalCartProducts, inputQuantityValue, tota
                     {
                         "From": {
                             "Email": "itsmh0305@gmail.com",
-                            "Name": "Manikandan"
+                            "Name": "Ganesha Eco Store"
                         },
                         "To": [
                             {
@@ -71,7 +71,7 @@ const sendAdminEmail = (formDetails, totalCartProducts, inputQuantityValue, tota
                                 "Name": 'ADMIN'
                             }
                         ],
-                        "Subject": `Hi Admin this is the order from ${name.value} on ${currentDate} at ${currentDateAndTime.split('T')[1]}`,
+                        "Subject": `Hi Admin this is the order from ${name.value} on ${currentDate} at ${currentTime}`,
                         "HTMLPart": `${customerHTMLtemplate} `,
                         "CustomID": "AppGettingStartedTest"
                     }
