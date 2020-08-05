@@ -24,13 +24,13 @@ const sendAdminEmail = (formDetails, totalCartProducts, inputQuantityValue, tota
 
         const customerHTMLtemplate = `
     <h2>Hi Admin, <h2>
-    <h3>Please find the user (${name.value}) order details below</h3>
+    <h3>Please find the Customer (${name.value}) order details below</h3>
     <h4>Order summary</h4>
     <hr />
     <div> 
         <table style="font - family: arial, sans-serif;border-collapse: collapse;width: 100%;">
             <tr>
-                <th style=" border: 1px solid #dddddd;text-align: left;padding: 8px;">Name</th>
+                <th style=" border: 1px solid #dddddd;text-align: left;padding: 8px;">Customer Name</th>
                 <th style=" border: 1px solid #dddddd;text-align: left;padding: 8px;">Ordered Date</th>
                 <th style=" border: 1px solid #dddddd;text-align: left;padding: 8px;">Ordered Time</th>
             </tr>

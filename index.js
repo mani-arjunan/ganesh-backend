@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const https = require('https');
 const sendPhoneMessage = require('./helper/SendConfirmation');
 const sendAdminEmail = require('./helper/SendConfirmationSeller');
+const queryEmail = require('./helper/QueryEmail');
 require('dotenv').config()
 
 const port = process.env.PORT || 3000
@@ -39,7 +40,7 @@ app.post('/send-email', (req, res) => {
                 data: data.body
             })
         }).catch(err => {
-            console.log(err,'=====')
+            console.log(err, '=====')
             res.send({
                 status: 404,
                 data: err
@@ -47,7 +48,31 @@ app.post('/send-email', (req, res) => {
         })
 })
 
+app.post('/query-message', (req, res) => {
+    const { email, name, message, number, currentTime, currentDate } = req.body
+    queryEmail(name, email, message, number, currentTime, currentDate).then(data => {
+        if (data.body.Messages[0].Status === 'success') {
+            return data
+        }
+        res.send({
+            status: 400,
+            error: 'server Error'
+        })
+    })
+        .then(data => {
+            res.send({
+                status: 201,
+                data: data.body
+            })
+        }).catch(err => {
+            console.log(err, '=====')
+            res.send({
+                status: 404,
+                data: err
+            })
+        })
+})
 
 app.listen(port, () => {
-  console.log(`Server listening on port ${port}`);
+    console.log(`Server listening on port ${port}`);
 })
