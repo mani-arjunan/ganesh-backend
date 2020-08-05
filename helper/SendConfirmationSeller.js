@@ -65,7 +65,10 @@ const sendAdminEmail = (formDetails, totalCartProducts, inputQuantityValue, tota
     </div>
     <div>
     <br/>
-     Thanks and Regards <br/>
+    <br/>
+    <br/>
+    <hr/>
+    Thanks and Regards<br/>from Admin team.
     </div>
      `
         const request = mailjet
