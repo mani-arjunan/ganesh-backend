@@ -31,6 +31,11 @@ const queryEmail = (name, email, message, number, currentTime, currentDate) => {
     <br/>
     <br/>
     <div>${message}</div>
+    <br/>
+    <br/>
+    <br/>
+    <hr/>
+    Thanks and Regards<br/>from Admin team.
     </div>
     </div>
     `
